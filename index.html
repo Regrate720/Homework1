@@ -1,9 +1,17 @@
 <script>
+    function sanitize(input) {
+        const element = document.createElement('div');
+        element.innerText = input;
+        return element.innerHTML;
+    }
+    
     function login() {
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
+        const username = sanitize(document.getElementById("username").value);
+        const password = sanitize(document.getElementById("password").value);
         
-        // Aquí iría el código para enviar las credenciales de forma segura al servidor
+        // No almacenar credenciales en localStorage
+        // localStorage.setItem("username", username);
+        // localStorage.setItem("password", password);
     
         if (username === "admin" && password === "admin123") {
             alert("Login successful!");
